@@ -4,29 +4,18 @@ body {
     color: #343a40;
 }
 
-h1 {
+h2 {
     color: #007bff;
-    margin-bottom: 20px;
-}
-
-p.lead {
-    font-size: 1.2rem;
-    color: #495057;
-}
-
-.project-list h2 {
-    margin-top: 20px;
     font-size: 1.5rem;
-    color: #007bff;
 }
 
-.list-group-item {
+.project-list .list-group-item {
     font-size: 1.2rem;
     color: #495057;
     transition: all 0.3s ease;
 }
 
-.list-group-item:hover {
+.project-list .list-group-item:hover {
     background-color: #007bff;
     color: #ffffff;
     transform: scale(1.05);
@@ -52,28 +41,25 @@ p.lead {
     background-color: #0056b3;
 }
 
-body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
+.footer {
+    background-color: #343a40;
+    color: white;
+    font-size: 0.9rem;
 }
 
-.dark-mode .list-group-item {
-    background-color: #333333;
-    color: #ffffff;
+#fileListContainer {
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
 }
 
-#themeToggleBtn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #343a40;
-    transition: color 0.3s ease;
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1s forwards;
 }
 
-body.dark-mode #themeToggleBtn {
-    color: #ffffff;
+@keyframes fadeInAnimation {
+    to {
+        opacity: 1;
+    }
 }

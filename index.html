@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Witryny i Aplikacje Internetowe - Projekty</title>
+    <title>Projekty - Witryny i Aplikacje Internetowe</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -12,63 +12,70 @@
 
     <button id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
 
-    <div class="container text-center mt-5">
-        <h1 class="display-4">Projekty - Witryny i Aplikacje Internetowe</h1>
-        <p class="lead">Przedmiot: Witryny i aplikacje internetowe</p>
-        <p>Nauczyciel: Arkadiusz Tyłka</p>
-        <p>Uczeń: Andrii Kondratiuk</p>
-        <p>Klasa i grupa: 3cT, gr. 1</p>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <input type="text" id="searchInput" class="form-control mb-4" onkeyup="searchProjects()" placeholder="Szukaj projektów...">
 
-        <hr class="my-4">
+                <div class="btn-group mb-4" role="group">
+                    <button type="button" class="btn btn-outline-primary" onclick="filterProjects('all')">Wszystkie</button>
+                    <button type="button" class="btn btn-outline-success" onclick="filterProjects('Zakończony')">Zakończone</button>
+                    <button type="button" class="btn btn-outline-warning" onclick="filterProjects('W toku')">W toku</button>
+                </div>
 
-        <div class="project-list">
-            <h2>Lista projektów</h2>
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#projectModal1">
-                    <i class="fas fa-info-circle mr-2"></i> Projekt 1
-                </a>
-                <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#projectModal2">
-                    <i class="fas fa-info-circle mr-2"></i> Projekt 2
-                </a>
+                <div class="project-list">
+                    <h2>Projekty</h2>
+                    <div class="list-group" id="projectList">
+                        <a href="#" class="list-group-item list-group-item-action" onclick="showFiles('Projekt 1')">
+                            <i class="fas fa-info-circle mr-2"></i> Kafelki
+                            <span class="badge badge-success ml-2">Zakończony</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" onclick="showFiles('Projekt 2')">
+                            <i class="fas fa-info-circle mr-2"></i> Kalkulator
+                            <span class="badge badge-warning ml-2">W toku</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6" id="fileListContainer" style="display: none;">
+                <h3 id="projectTitle"></h3>
+                <ul id="fileList" class="list-group"></ul>
+            </div>
+
+            <div class="col-md-3">
+                <div class="progress my-4">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" id="projectProgress">0% zakończonych</div>
+                </div>
             </div>
         </div>
     </div>
 
     <button id="scrollTopBtn" onclick="scrollToTop()">⬆️</button>
 
-    <div class="modal fade" id="projectModal1" tabindex="-1" role="dialog" aria-labelledby="projectModal1Label" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="projectModal1Label">Projekt 1 - Opis</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Krótki opis projektu: ten projekt prezentuje podstawy HTML i CSS.
-                </div>
-                <div class="modal-footer">
-                    <a href="../project1/index.html" target="_blank" class="btn btn-primary">Otwórz projekt</a>
-                </div>
-            </div>
+    <footer class="footer mt-auto py-3 bg-dark text-white text-center">
+        <div class="container">
+            <p>Przedmiot: Witryny i aplikacje internetowe</p>
+            <p>Nauczyciel: Arkadiusz Tyłka</p>
+            <p>Uczeń: Andrii Kondratiuk</p>
+            <p>Klasa i grupa: 3cT, gr. 1</p>
         </div>
-    </div>
+    </footer>
 
-    <div class="modal fade" id="projectModal2" tabindex="-1" role="dialog" aria-labelledby="projectModal2Label" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="fileContentModal" tabindex="-1" role="dialog" aria-labelledby="fileContentLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="projectModal2Label">Projekt 2 - Opis</h5>
+                    <h5 class="modal-title" id="fileContentLabel"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Krótki opis projektu: ten projekt przedstawia JavaScript podstawy.
+                    <pre id="fileContent"></pre>
                 </div>
                 <div class="modal-footer">
-                    <a href="../project2/index.html" target="_blank" class="btn btn-primary">Otwórz projekt</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
                 </div>
             </div>
         </div>
