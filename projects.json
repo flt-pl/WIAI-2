@@ -2,9 +2,8 @@
     {
         "name": "Projekt 1",
         "status": "Zakończony",
-        "files": ["index.html", "style.css", "script.js"],
-        "date": "2024-11-01",
-        "image": "images/project1.png"
+        "files": ["index.html"],
+        "date": "2024-11-01"
     },
     {
         "name": "Projekt 2",
