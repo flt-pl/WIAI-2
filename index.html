@@ -25,16 +25,7 @@
 
                 <div class="project-list">
                     <h2>Projekty</h2>
-                    <div class="list-group" id="projectList">
-                        <a href="#" class="list-group-item list-group-item-action" onclick="showFiles('Projekt 1')">
-                            <i class="fas fa-info-circle mr-2"></i> Kafelki
-                            <span class="badge badge-success ml-2">Zakończony</span>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action" onclick="showFiles('Projekt 2')">
-                            <i class="fas fa-info-circle mr-2"></i> Kalkulator
-                            <span class="badge badge-warning ml-2">W toku</span>
-                        </a>
-                    </div>
+                    <div class="list-group" id="projectList"></div>
                 </div>
             </div>
 
@@ -61,6 +52,18 @@
             <p>Klasa i grupa: 3cT, gr. 1</p>
         </div>
     </footer>
+
+    <div class="toast" id="newProjectToast" data-delay="3000">
+        <div class="toast-header">
+            <strong class="mr-auto">Nowy Projekt</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Dodano nowy projekt!
+        </div>
+    </div>
 
     <div class="modal fade" id="fileContentModal" tabindex="-1" role="dialog" aria-labelledby="fileContentLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">

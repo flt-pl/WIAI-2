@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Projekt 1",
+        "status": "Zakończony",
+        "files": ["index.html", "style.css", "script.js"]
+    },
+    {
+        "name": "Projekt 2",
+        "status": "W toku",
+        "files": ["index.html", "app.js"]
+    },
+    {
+        "name": "Projekt 3",
+        "status": "Zakończony",
+        "files": ["index.html", "style.css", "app.js"]
+    }
+]

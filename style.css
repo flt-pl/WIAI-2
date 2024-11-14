@@ -45,6 +45,9 @@ h2 {
     background-color: #343a40;
     color: white;
     font-size: 0.9rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 #fileListContainer {
@@ -62,4 +65,27 @@ h2 {
     to {
         opacity: 1;
     }
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-mode .footer {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .project-list .list-group-item {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode .project-list .list-group-item:hover {
+    background-color: #444;
+}
+
+body.dark-mode .modal-content {
+    background-color: #222;
+    color: white;
 }
