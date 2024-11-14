@@ -23,10 +23,57 @@ p.lead {
 .list-group-item {
     font-size: 1.2rem;
     color: #495057;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .list-group-item:hover {
     background-color: #007bff;
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.5);
+}
+
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+    background-color: #0056b3;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .list-group-item {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+#themeToggleBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #343a40;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode #themeToggleBtn {
     color: #ffffff;
 }

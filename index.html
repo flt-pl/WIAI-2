@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Witryny i Aplikacje Internetowe - Projekty</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <button id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
 
     <div class="container text-center mt-5">
         <h1 class="display-4">Projekty - Witryny i Aplikacje Internetowe</h1>
@@ -15,65 +18,58 @@
         <p>Nauczyciel: Arkadiusz Tyłka</p>
         <p>Uczeń: Andrii Kondratiuk</p>
         <p>Klasa i grupa: 3cT, gr. 1</p>
-        
+
         <hr class="my-4">
 
         <div class="project-list">
             <h2>Lista projektów</h2>
             <div class="list-group">
-                <!-- Ссылки на проекты -->
-                <a href="../project1/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 1</a>
-                <a href="../project2/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 2</a>
-                <a href="../project3/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 3</a>
-                <a href="../project4/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 4</a>
-                <a href="../project5/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 5</a>
-                <a href="../project6/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 6</a>
-                <a href="../project7/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 7</a>
-                <a href="../project8/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 8</a>
-                <a href="../project9/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 9</a>
-                <a href="../project10/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 10</a>
+                <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#projectModal1">
+                    <i class="fas fa-info-circle mr-2"></i> Projekt 1
+                </a>
+                <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#projectModal2">
+                    <i class="fas fa-info-circle mr-2"></i> Projekt 2
+                </a>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Witryny i Aplikacje Internetowe - Projekty</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <button id="scrollTopBtn" onclick="scrollToTop()">⬆️</button>
 
-    <div class="container text-center mt-5">
-        <h1 class="display-4">Projekty - Witryny i Aplikacje Internetowe</h1>
-        <p class="lead">Przedmiot: Witryny i aplikacje internetowe</p>
-        <p>Nauczyciel: Arkadiusz Tyłka</p>
-        <p>Uczeń: Andrii Kondratiuk</p>
-        <p>Klasa i grupa: 3cT, gr. 1</p>
-        
-        <hr class="my-4">
+    <div class="modal fade" id="projectModal1" tabindex="-1" role="dialog" aria-labelledby="projectModal1Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModal1Label">Projekt 1 - Opis</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Krótki opis projektu: ten projekt prezentuje podstawy HTML i CSS.
+                </div>
+                <div class="modal-footer">
+                    <a href="../project1/index.html" target="_blank" class="btn btn-primary">Otwórz projekt</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <div class="project-list">
-            <h2>Lista projektów</h2>
-            <div class="list-group">
-                <a href="./project1/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 1</a>
-                <a href="./project2/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 2</a>
-                <a href="./project3/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 3</a>
-                <a href="./project4/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 4</a>
-                <a href="./project5/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 5</a>
-                <a href="./project6/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 6</a>
-                <a href="./project7/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 7</a>
-                <a href="./project8/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 8</a>
-                <a href="./project9/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 9</a>
-                <a href="./project10/index.html" target="_blank" class="list-group-item list-group-item-action">Projekt 10</a>
+    <div class="modal fade" id="projectModal2" tabindex="-1" role="dialog" aria-labelledby="projectModal2Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModal2Label">Projekt 2 - Opis</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Krótki opis projektu: ten projekt przedstawia JavaScript podstawy.
+                </div>
+                <div class="modal-footer">
+                    <a href="../project2/index.html" target="_blank" class="btn btn-primary">Otwórz projekt</a>
+                </div>
             </div>
         </div>
     </div>
