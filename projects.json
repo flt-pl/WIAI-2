@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Projekt 1",
+        "status": "Zakończony",
+        "files": ["index.html"],
+        "date": "2024-11-01",
+        "progress": 100
+    }
+]
