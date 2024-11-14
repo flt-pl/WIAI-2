@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-fetch('projects.json')
+fetch('./projects.json')
     .then(response => response.json())
     .then(data => {
         const projectList = document.getElementById('projectList');
@@ -30,7 +30,6 @@ fetch('projects.json')
             projectItem.dataset.date = project.date;
             projectItem.addEventListener('click', () => loadFiles(project));
 
-            // Обновляем прогресс бар
             updateProgressBar(project.progress);
 
             projectList.appendChild(projectItem);
