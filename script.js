@@ -9,7 +9,15 @@ function scrollToTop() {
 
 function toggleTheme() {
     document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+});
 
 fetch('projects.json')
     .then(response => response.json())
@@ -19,40 +27,52 @@ fetch('projects.json')
             const projectItem = document.createElement('a');
             projectItem.classList.add('list-group-item', 'list-group-item-action');
             projectItem.textContent = project.name;
-            projectItem.dataset.date = project.date;  // Добавляем дату
-            projectItem.addEventListener('click', () => showFiles(project.name, project.files));
-            const badge = document.createElement('span');
-            badge.classList.add('badge', project.status === 'Zakończony' ? 'badge-success' : 'badge-warning');
-            badge.textContent = project.status;
-            projectItem.appendChild(badge);
+            projectItem.dataset.date = project.date;
+            projectItem.addEventListener('click', () => loadFiles(project));
             projectList.appendChild(projectItem);
         });
     });
 
-function showFiles(projectName, files) {
+function loadFiles(project) {
     const fileListContainer = document.getElementById('fileListContainer');
     const fileList = document.getElementById('fileList');
+    const projectTitle = document.getElementById('projectTitle');
+    
     fileList.innerHTML = '';
-    document.getElementById('projectTitle').textContent = `Pliki projektu: ${projectName}`;
-    files.forEach(file => {
+    projectTitle.textContent = `Pliki projektu: ${project.name}`;
+    
+    project.files.forEach(file => {
         const fileItem = document.createElement('li');
         fileItem.classList.add('list-group-item');
         fileItem.textContent = file;
         fileItem.addEventListener('click', () => showFileContent(file));
         fileList.appendChild(fileItem);
     });
+    
     fileListContainer.style.display = 'block';
 }
 
 function showFileContent(fileName) {
+    const fileContentModal = $('#fileContentModal');
     document.getElementById('fileContentLabel').textContent = fileName;
     document.getElementById('fileContent').textContent = 'Ładowanie...';
-    $('#fileContentModal').modal('show');
+    fileContentModal.modal('show');
 
     setTimeout(() => {
         document.getElementById('fileContent').textContent = `Kod pliku: ${fileName}`;
         Prism.highlightAll();
     }, 1000);
+}
+
+function addComment() {
+    const comment = document.getElementById('commentInput').value;
+    if (comment) {
+        const commentList = document.getElementById('commentsList');
+        const newComment = document.createElement('p');
+        newComment.textContent = comment;
+        commentList.appendChild(newComment);
+        document.getElementById('commentInput').value = '';
+    }
 }
 
 function filterProjects(status) {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/jquery-bar-rating@1.2.2/dist/themes/fontawesome-stars.css" rel="stylesheet">
 </head>
 <body>
 
@@ -44,6 +45,13 @@
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" id="projectProgress">0% zakończonych</div>
                 </div>
             </div>
+        </div>
+
+        <div class="comments mt-5">
+            <h3>Komentarze:</h3>
+            <div id="commentsList"></div>
+            <textarea id="commentInput" class="form-control mt-3" placeholder="Napisz komentarz..."></textarea>
+            <button class="btn btn-primary mt-2" onclick="addComment()">Dodaj komentarz</button>
         </div>
     </div>
 
@@ -92,6 +100,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-bar-rating@1.2.2/dist/jquery.barrating.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
