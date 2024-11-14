@@ -6,6 +6,7 @@
     <title>Projekty - Witryny i Aplikacje Internetowe</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,6 +22,10 @@
                     <button type="button" class="btn btn-outline-primary" onclick="filterProjects('all')">Wszystkie</button>
                     <button type="button" class="btn btn-outline-success" onclick="filterProjects('Zakończony')">Zakończone</button>
                     <button type="button" class="btn btn-outline-warning" onclick="filterProjects('W toku')">W toku</button>
+                </div>
+
+                <div class="btn-group mb-4" role="group">
+                    <button type="button" class="btn btn-outline-info" onclick="sortProjectsByDate()">Sortuj według daty</button>
                 </div>
 
                 <div class="project-list">
@@ -86,6 +91,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

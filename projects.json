@@ -2,16 +2,14 @@
     {
         "name": "Projekt 1",
         "status": "Zakończony",
-        "files": ["index.html", "style.css", "script.js"]
+        "files": ["index.html", "style.css", "script.js"],
+        "date": "2024-11-01",
+        "image": "images/project1.png"
     },
     {
         "name": "Projekt 2",
         "status": "W toku",
-        "files": ["index.html", "app.js"]
-    },
-    {
-        "name": "Projekt 3",
-        "status": "Zakończony",
-        "files": ["index.html", "style.css", "app.js"]
+        "files": ["index.html", "app.js"],
+        "date": "2024-11-10"
     }
 ]

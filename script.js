@@ -19,6 +19,7 @@ fetch('projects.json')
             const projectItem = document.createElement('a');
             projectItem.classList.add('list-group-item', 'list-group-item-action');
             projectItem.textContent = project.name;
+            projectItem.dataset.date = project.date;  // Добавляем дату
             projectItem.addEventListener('click', () => showFiles(project.name, project.files));
             const badge = document.createElement('span');
             badge.classList.add('badge', project.status === 'Zakończony' ? 'badge-success' : 'badge-warning');
@@ -31,10 +32,8 @@ fetch('projects.json')
 function showFiles(projectName, files) {
     const fileListContainer = document.getElementById('fileListContainer');
     const fileList = document.getElementById('fileList');
-    const projectTitle = document.getElementById('projectTitle');
-    
-    projectTitle.textContent = projectName;
     fileList.innerHTML = '';
+    document.getElementById('projectTitle').textContent = `Pliki projektu: ${projectName}`;
     files.forEach(file => {
         const fileItem = document.createElement('li');
         fileItem.classList.add('list-group-item');
@@ -42,18 +41,17 @@ function showFiles(projectName, files) {
         fileItem.addEventListener('click', () => showFileContent(file));
         fileList.appendChild(fileItem);
     });
-
     fileListContainer.style.display = 'block';
 }
 
 function showFileContent(fileName) {
     document.getElementById('fileContentLabel').textContent = fileName;
-    document.getElementById('fileContent').textContent = 'Ładowanie...';  // Placeholder
+    document.getElementById('fileContent').textContent = 'Ładowanie...';
     $('#fileContentModal').modal('show');
 
-    // Example: Fetch file content from your file system (or server)
     setTimeout(() => {
-        document.getElementById('fileContent').textContent = `Kod pliku ${fileName}`; // Placeholder content
+        document.getElementById('fileContent').textContent = `Kod pliku: ${fileName}`;
+        Prism.highlightAll();
     }, 1000);
 }
 
@@ -75,4 +73,18 @@ function searchProjects() {
         const projectName = item.textContent.toLowerCase();
         item.style.display = projectName.includes(searchInput) ? 'block' : 'none';
     });
+}
+
+function sortProjectsByDate() {
+    const projectList = document.querySelectorAll('.list-group-item');
+    const projects = Array.from(projectList);
+    
+    projects.sort((a, b) => {
+        const dateA = new Date(a.dataset.date);
+        const dateB = new Date(b.dataset.date);
+        return dateB - dateA;
+    });
+
+    const projectListContainer = document.getElementById('projectList');
+    projects.forEach(project => projectListContainer.appendChild(project));
 }
