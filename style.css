@@ -1,0 +1,32 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+p.lead {
+    font-size: 1.2rem;
+    color: #495057;
+}
+
+.project-list h2 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.list-group-item {
+    font-size: 1.2rem;
+    color: #495057;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
