@@ -65,17 +65,6 @@ function showFileContent(fileName, project) {
     }, 1000);
 }
 
-function addComment() {
-    const comment = document.getElementById('commentInput').value;
-    if (comment) {
-        const commentList = document.getElementById('commentsList');
-        const newComment = document.createElement('p');
-        newComment.textContent = comment;
-        commentList.appendChild(newComment);
-        document.getElementById('commentInput').value = '';
-    }
-}
-
 function filterProjects(status) {
     const allProjects = document.querySelectorAll('.list-group-item');
     allProjects.forEach(item => {
