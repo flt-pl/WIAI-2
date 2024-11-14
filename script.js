@@ -26,21 +26,33 @@ fetch('projects.json')
         data.forEach(project => {
             const projectItem = document.createElement('a');
             projectItem.classList.add('list-group-item', 'list-group-item-action');
-            projectItem.textContent = project.name;
+            projectItem.textContent = `${project.name} - ${project.status}`;
             projectItem.dataset.date = project.date;
             projectItem.addEventListener('click', () => loadFiles(project));
+
+            // Обновляем прогресс бар
+            updateProgressBar(project.progress);
+
             projectList.appendChild(projectItem);
         });
     });
+
+function updateProgressBar(progress) {
+    const progressBar = document.getElementById('projectProgress');
+    const progressBarElement = document.querySelector('.progress-bar');
+
+    progressBarElement.style.width = `${progress}%`;
+    progressBarElement.textContent = `${progress}% zakończonych`;
+}
 
 function loadFiles(project) {
     const fileListContainer = document.getElementById('fileListContainer');
     const fileList = document.getElementById('fileList');
     const projectTitle = document.getElementById('projectTitle');
-    
+
     fileList.innerHTML = '';
     projectTitle.textContent = `Pliki projektu: ${project.name}`;
-    
+
     project.files.forEach(file => {
         const fileItem = document.createElement('li');
         fileItem.classList.add('list-group-item');
@@ -48,7 +60,7 @@ function loadFiles(project) {
         fileItem.addEventListener('click', () => showFileContent(file));
         fileList.appendChild(fileItem);
     });
-    
+
     fileListContainer.style.display = 'block';
 }
 
@@ -98,7 +110,7 @@ function searchProjects() {
 function sortProjectsByDate() {
     const projectList = document.querySelectorAll('.list-group-item');
     const projects = Array.from(projectList);
-    
+
     projects.sort((a, b) => {
         const dateA = new Date(a.dataset.date);
         const dateB = new Date(b.dataset.date);

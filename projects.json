@@ -3,12 +3,7 @@
         "name": "Projekt 1",
         "status": "Zakończony",
         "files": ["index.html"],
-        "date": "2024-11-01"
-    },
-    {
-        "name": "Projekt 2",
-        "status": "W toku",
-        "files": ["index.html", "app.js"],
-        "date": "2024-11-10"
+        "date": "2024-11-01",
+        "progress": 100
     }
 ]

@@ -89,3 +89,8 @@ body.dark-mode .modal-content {
     background-color: #222;
     color: white;
 }
+
+.project-status {
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
